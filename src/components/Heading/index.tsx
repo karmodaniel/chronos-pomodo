@@ -1,4 +1,4 @@
-import { Home, Redo, Settings, Sun } from 'lucide-react';
+import { History, Home, Settings, Sun } from 'lucide-react';
 import { ButtonIcon } from '../ButtonIcon';
 import styles from './styles.module.css';
 
@@ -14,7 +14,7 @@ export function Heading({ children }: Readonly<HeadingProps>) {
 					<Home />
 				</ButtonIcon>
 				<ButtonIcon>
-					<Redo />
+					<History />
 				</ButtonIcon>
 				<ButtonIcon>
 					<Settings />

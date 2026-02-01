@@ -25,3 +25,24 @@ body {
 	background: var(--gray-900);
 	color: var(--text-default);
 }
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.4rem;
+}
+
+.formRow {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.4rem;
+}
+
+.formRow.playButton {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
