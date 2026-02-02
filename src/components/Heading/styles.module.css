@@ -1,15 +1,6 @@
 .heading {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
 	justify-content: center;
-	align-items: center;
-}
-
-.headingActions {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-
-	margin-top: 1.8rem;
-	margin-bottom: 2.4rem;
+	gap: 2.4rem;
 }
