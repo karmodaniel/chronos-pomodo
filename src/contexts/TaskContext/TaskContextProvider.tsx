@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { TaskContext } from './TaskContext';
 import { initialTaskState } from './initialTaskState';
+import { TaskReducer } from './taskReducer';
 
 type TextContextProviderProps = {
 	children: React.ReactNode;
@@ -9,14 +10,14 @@ type TextContextProviderProps = {
 export function TaskContextProvider({
 	children,
 }: Readonly<TextContextProviderProps>) {
-	const [state, setState] = useState(initialTaskState);
+	const [state, dispatch] = useReducer(TaskReducer, initialTaskState);
 
 	useEffect(() => {
 		console.log(state);
 	}, [state]);
 
 	return (
-		<TaskContext.Provider value={{ state, setState }}>
+		<TaskContext.Provider value={{ state, dispatch }}>
 			{children}
 		</TaskContext.Provider>
 	);
