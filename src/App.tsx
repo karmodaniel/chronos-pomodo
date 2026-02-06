@@ -7,7 +7,7 @@ import './styles/theme.css';
 export function App() {
 	return (
 		<TaskContextProvider>
-			<Home />;
+			<Home />
 		</TaskContextProvider>
 	);
 }
