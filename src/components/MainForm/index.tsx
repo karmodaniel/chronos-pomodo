@@ -9,6 +9,7 @@ import { getNextCycle } from '../utils/getNextCycle';
 import { getNextCycleType } from '../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
+import { showMessage } from '../../adapters/showMessages';
 
 export function MainForm() {
 	const { state, dispatch } = useTaskContext();
@@ -19,6 +20,7 @@ export function MainForm() {
 
 	const handleCreateNewTask = (event: React.SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		showMessage.dismiss();
 
 		const inputTaskName = taskName.trim();
 
@@ -38,9 +40,13 @@ export function MainForm() {
 		};
 
 		dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+		showMessage.success('Tarefa iniciada.');
 	};
 
 	const handleInterruptedTask = () => {
+		showMessage.dismiss();
+
+		showMessage.error('Tarefa interrompida!');
 		dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
 	};
 
