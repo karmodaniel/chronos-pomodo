@@ -40,9 +40,10 @@ export function TaskContextProvider({
 
 	useEffect(() => {
 		if (!state.activeTask) {
-			console.log('Worker terminado por falta de activeTask');
 			worker.terminate();
 		}
+
+		document.title = `${state.formattedSecondsRemaining} - Chronos pomodoro`;
 
 		worker.postMessage(state);
 	}, [worker, state]);

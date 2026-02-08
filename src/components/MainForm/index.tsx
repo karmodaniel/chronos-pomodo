@@ -13,7 +13,9 @@ import { showMessage } from '../../adapters/showMessages';
 
 export function MainForm() {
 	const { state, dispatch } = useTaskContext();
-	const [taskName, setTaskName] = useState('');
+	const [taskName, setTaskName] = useState(() => {
+		return state.tasks[state.tasks.length - 1]?.name || '';
+	});
 
 	const nextCycle = getNextCycle(state.currenteCycle);
 	const nextCycleType = getNextCycleType(nextCycle);
