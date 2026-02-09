@@ -4,7 +4,7 @@ import { Container } from '../components/Container';
 import { DefaultInput } from '../components/DefaultInput';
 import { Heading } from '../components/Heading';
 import { MainTemplate } from '../templates/MainTemplate';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTaskContext } from '../contexts/TaskContext/useTaskContext';
 import { showMessage } from '../adapters/showMessages';
 import { TaskActionTypes } from '../contexts/TaskContext/taskActions';
@@ -15,6 +15,10 @@ export function Settings() {
 	const shortBreakTimeInput = useRef<HTMLInputElement>(null);
 	const longBreakTimeInput = useRef<HTMLInputElement>(null);
 	const formErrors: string[] = [];
+
+	useEffect(() => {
+		document.title = 'Configurações - Chronos Pomodoro';
+	}, []);
 
 	function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
